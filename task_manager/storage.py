@@ -4,7 +4,7 @@ from typing import List
 
 from task_manager.models import Task
 
-STORAGE_FILE = Path.home() / ".task_manager_data.json"
+STORAGE_FILE = Path.cwd() / ".task_manager_data.json"
 
 
 def load_tasks() -> List[Task]:
