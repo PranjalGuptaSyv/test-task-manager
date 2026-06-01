@@ -19,3 +19,15 @@ def test_next_id_empty():
 def test_next_id_existing():
     tasks = [Task(id=1, title="a"), Task(id=3, title="b")]
     assert next_id(tasks) == 4
+
+
+def test_task_complete_flag():
+    task = Task(id=1, title="Read book")
+    task.completed = True
+    assert task.to_dict()["completed"] is True
+
+
+def test_task_from_dict_completed():
+    data = {"id": 2, "title": "Write tests", "created_at": "2026-06-01T10:00:00", "completed": True}
+    task = Task.from_dict(data)
+    assert task.completed is True
